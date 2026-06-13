@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AnalyzeFileTimeClass</class>
+ <widget class="QMainWindow" name="AnalyzeFileTimeClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>550</width>
+    <height>493</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>微軟正黑體</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>檔案建立時間分析</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="mainLayout">
+    <property name="leftMargin">
+     <number>12</number>
+    </property>
+    <property name="topMargin">
+     <number>12</number>
+    </property>
+    <property name="rightMargin">
+     <number>12</number>
+    </property>
+    <property name="bottomMargin">
+     <number>12</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="folderLayout">
+      <item>
+       <widget class="QLabel" name="labelFolderPath">
+        <property name="text">
+         <string>資料夾路徑(&amp;F)：</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEditFolderPath</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditFolderPath">
+        <property name="placeholderText">
+         <string>請選擇要分析的資料夾</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButtonBrowseFolder">
+        <property name="text">
+         <string>瀏覽...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="optionsLayout">
+      <item>
+       <widget class="QLabel" name="labelTimePrecision">
+        <property name="text">
+         <string>時間差精密度(&amp;P)：</string>
+        </property>
+        <property name="buddy">
+         <cstring>comboBoxTimePrecision</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBoxTimePrecision">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>毫秒</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>秒</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>分鐘</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>小時</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <spacer name="optionsSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QSplitter" name="mainSplitter">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QTableView" name="tableViewFiles">
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="sortingEnabled">
+        <bool>true</bool>
+       </property>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>true</bool>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="bottomPanel">
+       <layout class="QVBoxLayout" name="bottomLayout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>6</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QGroupBox" name="groupBoxStatistics">
+          <property name="title">
+           <string>時間差統計</string>
+          </property>
+          <layout class="QHBoxLayout" name="statisticsLayout">
+           <item>
+            <widget class="QLabel" name="labelMaxTitle">
+             <property name="text">
+              <string>最大值：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelMaxDifference">
+             <property name="minimumSize">
+              <size>
+               <width>90</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>-</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelMinTitle">
+             <property name="text">
+              <string>最小值：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelMinDifference">
+             <property name="minimumSize">
+              <size>
+               <width>90</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>-</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelAverageTitle">
+             <property name="text">
+              <string>平均值：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelAverageDifference">
+             <property name="minimumSize">
+              <size>
+               <width>90</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>-</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBoxChart">
+          <property name="title">
+           <string>時間差折線圖</string>
+          </property>
+          <layout class="QVBoxLayout" name="chartLayout">
+           <item>
+            <widget class="QtCharts::QChartView" name="chartViewTimeDifference">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>180</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QtCharts::QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>QtCharts/QChartView</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>lineEditFolderPath</tabstop>
+  <tabstop>toolButtonBrowseFolder</tabstop>
+  <tabstop>comboBoxTimePrecision</tabstop>
+  <tabstop>tableViewFiles</tabstop>
+  <tabstop>chartViewTimeDifference</tabstop>
+ </tabstops>
+ <resources>
+  <include location="AnalyzeFileTime.qrc"/>
+ </resources>
+ <connections/>
+</ui>

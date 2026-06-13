@@ -1,69 +1,71 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
+# C++ objects and libs
 *.slo
 *.lo
 *.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-*.so.*
-
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
 *.a
-*.lib
+*.la
+*.lai
+*.so
+*.so.*
+*.dll
+*.dylib
 
-# Executables
-*.exe
-*.out
-*.app
+# Qt-es
+object_script.*.Release
+object_script.*.Debug
+*_plugin_import.cpp
+/.qmake.cache
+/.qmake.stash
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.qmlc
+*.jsc
+Makefile*
+*build-*
+*.qm
+*.prl
 
-# Build directories
-build/
-Build/
-build-*/
+# Qt unit tests
+target_wrapper.*
 
-# CMake generated files
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-install_manifest.txt
+# QtCreator
+*.autosave
+
+# QtCreator Qml
+*.qmlproject.user
+*.qmlproject.user.*
+
+# QtCreator CMake
+CMakeLists.txt.user*
+
+# QtCreator 4.8< compilation database
 compile_commands.json
 
-# Temporary files
-*.tmp
-*.log
-*.bak
-*.swp
+# QtCreator local machine specific files for imported projects
+*creator.user*
 
-# vcpkg
-vcpkg_installed/
+*_qmlcache.qrc
 
-# debug information files
-*.dwo
+# 忽略 Visual Studio 資料夾和檔案
+.vs/
+*.user
 
-# test output & cache
-Testing/
-.cache/
+# 忽略 Debug/Release 輸出資料夾
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+
+# 忽略 Windows 縮圖
+Thumbs.db
+
+# 忽略編譯產生的其他檔案
+*.exe
+*.pdb
